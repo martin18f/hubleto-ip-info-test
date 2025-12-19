@@ -49,29 +49,29 @@
           Zatiaľ nemáš výsledok. Zadaj IP a klikni “Vyhľadať”.
         </div>
       {% else %}
-        {# Pekný “summary” – zobraz len ak existujú #}
+        {# Summary – zobraz len ak existujú #}
         <div class="mb-3">
           <div><b>Country:</b> {{ viewParams.result.country ?? '-' }}</div>
           <div><b>City:</b> {{ viewParams.result.city ?? '-' }}</div>
           <div><b>Region:</b> {{ viewParams.result.region ?? '-' }}</div>
+
           {% set tz = viewParams.result.timezone ?? null %}
-<div><b>Timezone:</b>
-  {% if tz is iterable %}
-    {{ tz.id ?? '-' }}
-  {% else %}
-    {{ tz ?? '-' }}
-  {% endif %}
-</div>
+          <div><b>Timezone:</b>
+            {% if tz is iterable %}
+              {{ tz.id ?? '-' }}
+            {% else %}
+              {{ tz ?? '-' }}
+            {% endif %}
+          </div>
 
-{% set conn = viewParams.result.connection ?? null %}
-<div><b>ISP:</b>
-  {% if conn is iterable %}
-    {{ conn.isp ?? (conn.org ?? '-') }}
-  {% else %}
-    {{ viewParams.result.isp ?? '-' }}
-  {% endif %}
-</div>
-
+          {% set conn = viewParams.result.connection ?? null %}
+          <div><b>ISP:</b>
+            {% if conn is iterable %}
+              {{ conn.isp ?? (conn.org ?? '-') }}
+            {% else %}
+              {{ viewParams.result.isp ?? '-' }}
+            {% endif %}
+          </div>
         </div>
 
         <hr/>
@@ -107,3 +107,7 @@
 
 {# DO NOT DELETE FOLLOWING LINE, OR `php hubleto` WILL NOT GENERATE CODE HERE #}
 {# @hubleto-cli:buttons #}
+<a class='btn btn-large btn-square btn-transparent' href='ipinfotest/favorite-ips'>
+<span class='icon'><i class='fas fa-table'></i></span>
+<span class='text'>FavoriteIps</span>
+</a>

@@ -11,5 +11,7 @@
 // <app-ipinfotest-table-my-model string:some-property="some-value"></app-ipinfotest-table-my-model>
 
 //@hubleto-cli:imports
+import TableFavoriteIps from './Components/TableFavoriteIps';
 
 //@hubleto-cli:register-components
+globalThis.main.registerReactComponent('IpInfoTestTableFavoriteIps', TableFavoriteIps);
